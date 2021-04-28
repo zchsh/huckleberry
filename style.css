@@ -10,3 +10,99 @@ body {
 }
 
 /* Add styles here! */
+
+/*
+Figma:
+https://www.figma.com/file/JrElHgvYfIhoxY5vaYdEii/2021-04-27-josh-comeau-css-huckleberry
+*/
+
+:root {
+  /* Colour */
+  --heading-bg: #f4c142;
+  --heading-bg-accent: #c39a33;
+  --heading-text-color: #000000;
+  --muted-bg: #999999;
+  --muted-bg-accent: #666666;
+  --text-bg: #ffffff;
+  --text-color: #1a1a1a;
+  --text-color-linked: #48966a;
+  /* Layout */
+  --site-max-width: 720px;
+  --site-side-padding: 28px;
+  /* Shared properties */
+  --accent-border-width: 6px;
+}
+
+/* Global */
+
+/* Kludgy reset, so that all values are either
+intentionally designed or visually broken */
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: var(--muted-bg);
+}
+
+.max-width-wrapper {
+  margin: 0 auto;
+  max-width: var(--site-max-width);
+}
+
+/* Header section */
+
+header {
+  background: var(--text-bg);
+  border-bottom: var(--accent-border-width) solid var(--muted-bg-accent);
+}
+
+.intro-chunk {
+  padding: 112px var(--site-side-padding) 60px var(--site-side-padding);
+}
+
+.intro-chunk .title {
+  padding-bottom: 48px;
+}
+
+.intro-chunk p {
+  color: var(--text-color);
+  font-size: 24px;
+  line-height: 1.375em;
+  max-width: 18.75em;
+  padding: 12px 0;
+}
+
+.intro-chunk strong {
+  color: var(--text-color-linked);
+}
+
+/* Main section */
+
+main {
+  padding: 88px 0;
+}
+
+.card {
+  background: var(--text-bg);
+  border-bottom: var(--accent-border-width) solid var(--muted-bg-accent);
+  padding: 8px var(--site-side-padding) 12px var(--site-side-padding);
+}
+
+.card .indented-heading {
+  --indent: 43px;
+  background: var(--heading-bg);
+  border-bottom: var(--accent-border-width) solid var(--heading-bg-accent);
+  color: var(--heading-text-color);
+  margin-left: calc(var(--indent-amount) * -1);
+  padding: 20px var(--indent) 24px var(--indent);
+  width: fit-content;
+}
+
+.card p {
+  color: var(--text-color);
+  font-size: 20px;
+  line-height: 1.4em;
+  margin: 20px 0;
+}
