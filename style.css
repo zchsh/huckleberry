@@ -1,6 +1,6 @@
 * {
   box-sizing: border-box;
-  font-family: 'Lato', sans-serif;
+  font-family: "Lato", sans-serif;
 }
 
 html,
@@ -17,20 +17,30 @@ https://www.figma.com/file/JrElHgvYfIhoxY5vaYdEii/2021-04-27-josh-comeau-css-huc
 */
 
 :root {
-  /* Colour */
-  --heading-bg: #f4c142;
-  --heading-bg-accent: #c39a33;
-  --heading-text-color: #000000;
-  --muted-bg: #999999;
-  --muted-bg-accent: #666666;
-  --text-bg: #ffffff;
-  --text-color: #1a1a1a;
-  --text-color-linked: #48966a;
+  /* Brand palette */
+  --brand-primary: hsl(160deg, 100%, 30%);
+  --brand-secondary-lighter: hsl(45deg, 100%, 50%);
+  --brand-secondary-darker: hsl(45deg, 100%, 40%);
+  --gray-black: hsl(0deg, 0%, 0%);
+  --gray-very-dark: hsl(0deg, 0%, 10%);
+  --gray-dark: hsl(0deg, 0%, 30%);
+  --gray-medium: hsl(0deg, 0%, 40%);
+  --gray-light: hsl(0deg, 0%, 60%);
+  --gray-white: hsl(0deg, 0%, 100%);
+  /* Semantic palette */
+  --heading-bg: var(--brand-secondary-lighter);
+  --heading-bg-accent: var(--brand-secondary-darker);
+  --heading-text-color: var(--gray-black);
+  --muted-bg: var(--gray-light);
+  --muted-bg-accent: var(--gray-medium);
+  --text-bg: var(--gray-white);
+  --text-color: var(--gray-very-dark);
+  --text-color-linked: var(--brand-primary);
   /* Layout */
   --site-max-width: 720px;
-  --site-side-padding: 28px;
+  --site-gutter: 24px;
   /* Shared properties */
-  --accent-border-width: 6px;
+  --accent-border-width: 8px;
 }
 
 /* Global */
@@ -40,6 +50,11 @@ intentionally designed or visually broken */
 * {
   margin: 0;
   padding: 0;
+}
+
+html {
+  font-size: 1.125rem;
+  line-height: 1.4;
 }
 
 body {
@@ -59,19 +74,23 @@ header {
 }
 
 .intro-chunk {
-  padding: 112px var(--site-side-padding) 60px var(--site-side-padding);
+  padding: 96px var(--site-gutter) 64px var(--site-gutter);
 }
 
 .intro-chunk .title {
+  font-size: 2rem;
   padding-bottom: 48px;
 }
 
 .intro-chunk p {
   color: var(--text-color);
-  font-size: 24px;
-  line-height: 1.375em;
-  max-width: 18.75em;
-  padding: 12px 0;
+  font-size: 1.25rem;
+  line-height: 1.4;
+  max-width: 18em;
+}
+
+.intro-chunk p + p {
+  margin-top: 16px;
 }
 
 .intro-chunk strong {
@@ -81,28 +100,31 @@ header {
 /* Main section */
 
 main {
-  padding: 88px 0;
+  padding: 96px 0;
 }
 
 .card {
   background: var(--text-bg);
   border-bottom: var(--accent-border-width) solid var(--muted-bg-accent);
-  padding: 8px var(--site-side-padding) 12px var(--site-side-padding);
+  padding: var(--site-gutter);
 }
 
 .card .indented-heading {
-  --indent: 43px;
+  --indent: 32px;
   background: var(--heading-bg);
   border-bottom: var(--accent-border-width) solid var(--heading-bg-accent);
   color: var(--heading-text-color);
-  margin-left: calc(var(--indent-amount) * -1);
-  padding: 20px var(--indent) 24px var(--indent);
+  margin-top: calc(var(--indent) * -0.5);
+  margin-left: calc(var(--indent) * -1);
+  margin-bottom: 16px;
+  padding: calc(var(--indent) * 0.5) var(--indent);
   width: fit-content;
 }
 
 .card p {
   color: var(--text-color);
-  font-size: 20px;
-  line-height: 1.4em;
-  margin: 20px 0;
+}
+
+.card p + p {
+  margin-top: 16px;
 }
